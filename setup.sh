@@ -1,7 +1,7 @@
 #!/bin/bash
 
 install() {
-  sudo apt-get install -q -y "$1" > >(tee -a install_log.txt) 2>&1
+  sudo apt-get install -q -y "$1" > /dev/null 2>&1
   
   if [ $? -eq 0 ]; then
     echo "Successfully installed $1"
@@ -9,7 +9,7 @@ install() {
 }
 
 clone() {
-  sudo git clone --depth 1 "$1" "$2" > >(tee -a clone_log.txt) 2>&1
+  sudo git clone --depth 1 "$1" "$2" > /dev/null 2>&1
   
   if [ $? -eq 0 ]; then
     echo "Successfully cloned $1 to $2"
@@ -17,7 +17,7 @@ clone() {
 }
 
 update() {
-  sudo apt-get update > >(tee -a update_log.txt) 2>&1
+  sudo apt-get update > /dev/null 2>&1
  
   if [ $? -eq 0 ]; then
     echo "Successfully updated package information"
@@ -25,7 +25,7 @@ update() {
 }
 
 upgrade() {
-  sudo apt-get upgrade -y > >(tee -a upgrade_log.txt) 2>&1
+  sudo apt-get upgrade -y > /dev/null 2>&1
   
   if [ $? -eq 0 ]; then
     echo "Successfully upgraded installed packages"
@@ -90,7 +90,7 @@ install "cmake"
 
 ### GF [GDB Frontend] (Tools)
 
-install "x11lib-dev"
+install "libx11-dev"
 
 install "python3"
 
