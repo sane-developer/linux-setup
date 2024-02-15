@@ -1,20 +1,43 @@
 #!/bin/bash
 
 install() {
-  sudo apt-get install -q -y "$1" &> /dev/null
-  echo "Successfully installed $1"
+  sudo apt-get install -q -y "$1" 2>&1 | tee -a install_log.txt
+  
+  if [ $? -eq 0 ]; then
+    echo "Successfully installed $1"
+  else
+    echo "Failed to install $1. Check install_log.txt for details."
+  fi
 }
 
 clone() {
-  sudo git clone --depth 1 "$1" "$2" &> /dev/null
+  sudo git clone --depth 1 "$1" "$2" 2>&1 | tee -a clone_log.txt
+  
+  if [ $? -eq 0 ]; then
+    echo "Successfully cloned $1 to $2"
+  else
+    echo "Failed to clone $1 to $2. Check clone_log.txt for details."
+  fi
 }
 
 update() {
-  sudo apt-get update &> /dev/null
+  sudo apt-get update 2>&1 | tee -a update_log.txt
+  
+  if [ $? -eq 0 ]; then
+    echo "Successfully updated package information"
+  else
+    echo "Failed to update package information. Check update_log.txt for details."
+  fi
 }
 
 upgrade() {
-  sudo apt-get upgrade &> /dev/null
+  sudo apt-get upgrade -y 2>&1 | tee -a upgrade_log.txt
+  
+  if [ $? -eq 0 ]; then
+    echo "Successfully upgraded installed packages"
+  else
+    echo "Failed to upgrade installed packages. Check upgrade_log.txt for details."
+  fi
 }
 
 config_file="$HOME/.bashrc"
