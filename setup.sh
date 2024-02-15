@@ -1,7 +1,8 @@
 #!/bin/bash
 
 install() {
-  sudo apt-get install -q -y "$1" &> /dev/null && echo "Successfully installed $1"
+  sudo apt-get install -q -y "$1" &> /dev/null
+  echo "Successfully installed $1"
 }
 
 clone() {
@@ -26,31 +27,59 @@ mkdir $third_party_software_dir
 
 ### Syncing with latest updates
 
-update && upgrade
+update
+
+upgrade
 
 ### Network requests (Tools)
 
-install "curl wget"
+install "curl"
+
+install "wget"
 
 ### Archives (Tools)
 
-install "tar gzip unzip"
+install "tar"
+
+install "gzip"
+
+install "unzip"
 
 ### Manuals (Tools)
 
-install "man man-db manpages-dev"
+install "man"
+
+install "man-db"
+
+install "manpages-dev"
 
 ### Development toolchain (Tools) 
 
-install "git ssh ssh-keygen"
+install "git"
+
+install "ssh"
+
+install "ssh-keygen"
 
 ### C/C++ Toolchain (Tools)
 
-install "gcc g++ gdb make cmake"
+install "gcc"
+
+install "g++"
+
+install "gdb"
+
+install "make"
+
+install "cmake"
 
 ### GF [GDB Frontend] (Tools)
 
-install "x11lib-dev python3 python3-venv"
+install "x11lib-dev"
+
+install "python3"
+
+install "python3-venv"
 
 clone "https://github.com/nakst/gf.git" "$third_party_software_dir/gf"
 
@@ -86,7 +115,7 @@ echo "Fuzzy finder has been successfully installed"
 
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | source
 
-eval "$(zoxide init --cmd cd bash)" >> $config_file
+eval "$(zoxide init --cmd cd bash)" >> "$config_file"
 
 echo "Zoxide has been successfully installed"
 
