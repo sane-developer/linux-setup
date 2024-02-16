@@ -40,8 +40,6 @@ third_party_software_dir="$HOME/software"
 
 mkdir "$third_party_software_dir"
 
-cd "$third_party_software_dir"
-
 ### Syncing with latest updates
 
 update
@@ -100,7 +98,9 @@ install "python3-venv"
 
 clone "https://github.com/nakst/gf.git" "$third_party_software_dir/gf"
 
-source "$third_party_software_dir/gf/build.sh"
+cd "$third_party_software_dir/gf"
+
+. "build.sh"
 
 echo "GF has been successfully installed"
 
@@ -124,7 +124,9 @@ echo "Neovim has been successfully installed"
 
 clone "https://github.com/junegunn/fzf.git" "$third_party_software_dir/fzf"
 
-source "$third_party_software_dir/fzf/install"
+cd "$third_party_software_dir/fzf"
+
+. "install"
 
 echo "Fuzzy finder has been successfully installed"
 
