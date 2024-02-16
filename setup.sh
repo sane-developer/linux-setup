@@ -38,7 +38,9 @@ third_party_software_dir="$HOME/software"
 
 ### Setting up third party software directory
 
-mkdir $third_party_software_dir
+mkdir "$third_party_software_dir"
+
+cd "$third_party_software_dir"
 
 ### Syncing with latest updates
 
