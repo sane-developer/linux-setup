@@ -120,13 +120,13 @@ echo "Neovim has been successfully installed"
 
 ### Fuzzy finder [File search extension] (Terminal)
 
-clone "https://github.com/junegunn/fzf.git" "$third_party_software_dir/fzf"
+# clone "https://github.com/junegunn/fzf.git" "$third_party_software_dir/fzf"
 
-cd "$third_party_software_dir/fzf"
+# cd "$third_party_software_dir/fzf"
 
-bash "install"
+# bash "install"
 
-echo "Fuzzy finder has been successfully installed"
+# echo "Fuzzy finder has been successfully installed"
 
 ### Zoxide [Better terminal navigation] (Terminal)
 
@@ -136,7 +136,7 @@ echo "Zoxide has been successfully installed"
 
 ### Donwload .bashrc config and overwrite the current one
 
-curl -sS https://raw.githubusercontent.com/sane-developer/linux-setup/main/.bashrc > "$HOME/.bashrc"
+curl -sS https://raw.githubusercontent.com/sane-developer/linux-setup/main/.bashrc > "$config_file"
 
 ### Sync config file with the changes
 
