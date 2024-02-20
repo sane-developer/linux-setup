@@ -6,7 +6,7 @@ sudo curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.
 
 sudo chmod +x "zoxide_setup.sh"
 
-sudo . "zoxide_setup.sh"
+. "zoxide_setup.sh"
 
 sudo rm -f "zoxide_setup.sh"
 
