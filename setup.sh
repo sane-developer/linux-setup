@@ -47,15 +47,15 @@ upgrade
 
 ### Including the sources of the setup scripts
 
-run_script "./scripts/setup_manuals.sh"
-run_script "./scripts/setup_archive_tools.sh"
-run_script "./scripts/setup_web_tools.sh"
-run_script "./scripts/setup_git_tools.sh"
-run_script "./scripts/setup_c_tools.sh"
-run_script "./scripts/setup_gf.sh"
-run_script "./scripts/setup_nvim.sh"
-run_script "./scripts/setup_fzf.sh"
-run_script "./scripts/setup_zoxide.sh"
+run_script "scripts/setup_manuals.sh"
+run_script "scripts/setup_archive_tools.sh"
+run_script "scripts/setup_web_tools.sh"
+run_script "scripts/setup_git_tools.sh"
+run_script "scripts/setup_c_tools.sh"
+run_script "scripts/setup_gf.sh"
+run_script "scripts/setup_nvim.sh"
+run_script "scripts/setup_fzf.sh"
+run_script "scripts/setup_zoxide.sh"
 
 ### Adjust the .bashrc configuration file
 
