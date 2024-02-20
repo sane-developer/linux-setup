@@ -12,4 +12,4 @@ clone "https://github.com/nakst/gf.git" "$HOME/software/gf"
 
 cd "$HOME/software/gf"
 
-source "build.sh"
+sudo "build.sh"
