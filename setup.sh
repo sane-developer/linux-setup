@@ -52,6 +52,10 @@ install "gdb"
 install "make"
 install "cmake"
 
+install "libx11-dev"
+install "python3"
+install "python3-venv"
+
 ### Manual installation tools
 
 ./tools/gf.sh
