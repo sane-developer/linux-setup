@@ -1,13 +1,5 @@
 #!/bin/bash
 
-append() {
-  sudo echo "$1" >> "$2"
-}
-
-run_script() {
-  source "$1" 
-}
-
 install() {
   sudo apt-get install -q -y "$1" > /dev/null 2>&1
   
@@ -45,24 +37,42 @@ upgrade() {
 update
 upgrade
 
-### Including the sources of the setup scripts
+### Package manager tools 
 
-run_script "scripts/setup_manuals.sh"
-run_script "scripts/setup_archive_tools.sh"
-run_script "scripts/setup_web_tools.sh"
-run_script "scripts/setup_git_tools.sh"
-run_script "scripts/setup_c_tools.sh"
-run_script "scripts/setup_gf.sh"
-run_script "scripts/setup_nvim.sh"
-run_script "scripts/setup_fzf.sh"
-run_script "scripts/setup_zoxide.sh"
+install "man"
+install "man-db"
+install "manpages-dev"
+
+install "tar"
+install "gzip"
+install "unzip"
+
+install "curl"
+install "wget"
+
+install "git"
+install "ssh"
+install "ssh-keygen"
+
+install "gcc"
+install "g++"
+install "gdb"
+install "make"
+install "cmake"
+
+### Manual installation tools
+
+./scripts/gf.sh
+./scripts/nvim.sh
+./scripts/fzf.sh
+./scripts/zoxide.sh
 
 ### Adjust the .bashrc configuration file
 
 config_file="$HOME/.bashrc"
 
-append "alias ls='LC_COLLATE=C ls -la --color=auto --group-directories-first'" "$config_file"
-append "export PATH=$PATH:$HOME/software/gf:$HOME/software/nvim/bin:$HOME/.local/bin" "$config_file"
-append "export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'" "$config_file"
+echo "alias ls='LC_COLLATE=C ls -la --color=auto --group-directories-first'" >> "$config_file"
+echo "export PATH=$PATH:$HOME/software/gf:$HOME/software/nvim/bin:$HOME/.local/bin" >> "$config_file"
+echo "export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'" >> "$config_file"
 
-run_script "$HOME/.bashrc"
+source "$config_file"

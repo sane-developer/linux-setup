@@ -10,6 +10,4 @@ mkdir -p "$HOME/software"
 
 clone "https://github.com/nakst/gf.git" "$HOME/software/gf"
 
-cd "$HOME/software/gf"
-
-sudo "build.sh"
+. "$HOME/software/gf/build.sh"

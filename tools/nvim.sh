@@ -4,9 +4,9 @@ mkdir -p "$HOME/software/"
 
 cd "$HOME/software/"
 
-curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz > /dev/null 2>&1 
+curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz 
 
-tar xzvf nvim-linux64.tar.gz > /dev/null 2>&1
+tar xzvf nvim-linux64.tar.gz
 
 mv nvim-linux64 nvim
 
