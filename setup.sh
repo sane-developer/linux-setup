@@ -32,6 +32,10 @@ upgrade() {
   fi
 }
 
+append() {
+  echo "$1" >> "$2"
+}
+
 config_file="$HOME/.bashrc"
 
 third_party_software_dir="$HOME/software"
@@ -108,7 +112,7 @@ echo "GF has been successfully installed"
 
 cd "$third_party_software_dir"
 
-curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+download -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
 
 tar xzvf nvim-linux64.tar.gz
 
@@ -134,9 +138,17 @@ curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | 
 
 echo "Zoxide has been successfully installed"
 
-### Donwload .bashrc config and overwrite the current one
+### Adjust .bashrc file
 
-curl -sS https://raw.githubusercontent.com/sane-developer/linux-setup/main/.bashrc > "$config_file"
+append "export PATH=$PATH:$HOME/software/gf:$HOME/software/nvim/bin:$HOME/.local/bin" "$config_file"
+
+append "alias ls='LC_COLLATE=C ls -la --color=auto --group-directories-first'" "$config_file"
+
+append "export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'" "$config_file"
+
+append "eval '$(zoxide init --cmd cd bash)'" "$config_file"
+
+append "[ -f ~/.fzf.bash ] && source ~/.fzf.bash" "$config_file"
 
 ### Sync config file with the changes
 
