@@ -116,8 +116,6 @@ mv nvim-linux64 nvim
 
 rm nvim-linux64.tar.gz
 
-ln -s /usr/local/nvim/bin/nvim /usr/local/bin/nvim
-
 echo "Neovim has been successfully installed"
 
 ### Fuzzy finder [File search extension] (Terminal)
@@ -134,9 +132,11 @@ echo "Fuzzy finder has been successfully installed"
 
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | source
 
-eval "$(zoxide init --cmd cd bash)" >> "$config_file"
-
 echo "Zoxide has been successfully installed"
+
+### Donwload .bashrc config and overwrite the current one
+
+curl -sS https://raw.githubusercontent.com/sane-developer/linux-setup/main/.bashrc > "$HOME/.bashrc"
 
 ### Sync config file with the changes
 
