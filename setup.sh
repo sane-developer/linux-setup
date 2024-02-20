@@ -8,14 +8,6 @@ install() {
   fi
 }
 
-clone() {
-  sudo git clone --depth 1 "$1" "$2" > /dev/null 2>&1
-  
-  if [ $? -eq 0 ]; then
-    echo "Successfully cloned $1 to $2"
-  fi
-}
-
 update() {
   sudo apt-get update > /dev/null 2>&1
  

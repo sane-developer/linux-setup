@@ -2,7 +2,7 @@
 
 mkdir -p "$HOME/software"
 
-clone "https://github.com/junegunn/fzf.git" "$HOME/software/fzf"
+sudo git clone --depth 1 "https://github.com/junegunn/fzf.git" "$HOME/software/fzf"
 
 . "$HOME/software/fzf/install"
 

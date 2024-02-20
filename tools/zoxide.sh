@@ -6,10 +6,10 @@ curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh > 
 
 chmod +x "zoxide_setup.sh"
 
-sudo "zoxide_setup.sh"
+. "zoxide_setup.sh"
 
 rm -f "zoxide_setup.sh"
 
-append "eval '$(zoxide init --cmd cd bash)'" ".bashrc"
+echo "eval '$(zoxide init --cmd cd bash)'" >> ".bashrc"
 
 echo "Successfully installed Zoxide..."
