@@ -5,7 +5,7 @@ append() {
 }
 
 run() {
-  sudo bash "$1" 
+  sudo source "$1" 
 }
 
 install() {
@@ -65,4 +65,4 @@ append "alias ls='LC_COLLATE=C ls -la --color=auto --group-directories-first'" "
 append "export PATH=$PATH:$HOME/software/gf:$HOME/software/nvim/bin:$HOME/.local/bin" "$config_file"
 append "export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'" "$config_file"
 
-source "$HOME/.bashrc"
+run "$HOME/.bashrc"
