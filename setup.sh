@@ -62,10 +62,10 @@ install "cmake"
 
 ### Manual installation tools
 
-./scripts/gf.sh
-./scripts/nvim.sh
-./scripts/fzf.sh
-./scripts/zoxide.sh
+./tools/gf.sh
+./tools/nvim.sh
+./tools/fzf.sh
+./tools/zoxide.sh
 
 ### Adjust the .bashrc configuration file
 
