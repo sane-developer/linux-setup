@@ -1,5 +1,13 @@
 #!/bin/bash
 
+append() {
+  sudo echo "$1" >> "$2"
+}
+
+run() {
+  sudo bash "$1" 
+}
+
 install() {
   sudo apt-get install -q -y "$1" > /dev/null 2>&1
   
@@ -30,10 +38,6 @@ upgrade() {
   if [ $? -eq 0 ]; then
     echo "Successfully upgraded installed packages"
   fi
-}
-
-append() {
-  echo "$1" >> "$2"
 }
 
 config_file="$HOME/.bashrc"
@@ -104,7 +108,7 @@ clone "https://github.com/nakst/gf.git" "$third_party_software_dir/gf"
 
 cd "$third_party_software_dir/gf"
 
-bash "build.sh"
+run "build.sh"
 
 echo "GF has been successfully installed"
 
@@ -134,7 +138,15 @@ echo "Neovim has been successfully installed"
 
 ### Zoxide [Better terminal navigation] (Terminal)
 
-curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | source
+cd "$HOME"
+
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh > "zoxide_setup.sh"
+
+chmod +x "zoxide_setup.sh"
+
+run "zoxide_setup.sh"
+
+rm -f "zoxide_setup.sh"
 
 echo "Zoxide has been successfully installed"
 
