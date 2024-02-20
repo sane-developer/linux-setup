@@ -100,7 +100,7 @@ clone "https://github.com/nakst/gf.git" "$third_party_software_dir/gf"
 
 cd "$third_party_software_dir/gf"
 
-sudo . "build.sh"
+bash "build.sh"
 
 echo "GF has been successfully installed"
 
@@ -108,13 +108,13 @@ echo "GF has been successfully installed"
 
 cd "$third_party_software_dir"
 
-sudo curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
 
-sudo tar xzvf nvim-linux64.tar.gz
+tar xzvf nvim-linux64.tar.gz
 
-sudo mv nvim-linux64 nvim
+mv nvim-linux64 nvim
 
-sudo rm nvim-linux64.tar.gz
+rm nvim-linux64.tar.gz
 
 echo "Neovim has been successfully installed"
 
@@ -124,20 +124,20 @@ clone "https://github.com/junegunn/fzf.git" "$third_party_software_dir/fzf"
 
 cd "$third_party_software_dir/fzf"
 
-sudo . "install"
+bash "install"
 
 echo "Fuzzy finder has been successfully installed"
 
 ### Zoxide [Better terminal navigation] (Terminal)
 
-sudo curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | source
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | source
 
 echo "Zoxide has been successfully installed"
 
 ### Donwload .bashrc config and overwrite the current one
 
-sudo curl -sS https://raw.githubusercontent.com/sane-developer/linux-setup/main/.bashrc > "$HOME/.bashrc"
+curl -sS https://raw.githubusercontent.com/sane-developer/linux-setup/main/.bashrc > "$HOME/.bashrc"
 
 ### Sync config file with the changes
 
-sudo source "$config_file"
+source "$config_file"
